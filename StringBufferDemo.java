@@ -2,106 +2,47 @@
 public class StringBufferDemo {
 
 	public static void main(String[] args) {
-		// mutable-can modify original contents
+		//StringBuffer s1 ="hello"; error
+		StringBuffer s1 =new StringBuffer(20);
+		System.out.println(s1.capacity());
+		s1=new StringBuffer("hello");//mutable
+		s1.append(false);
+		System.out.println("s1="+s1);
+		s1.append(10);
+		System.out.println("s1="+s1);
+		s1.append("hello");
+		System.out.println("s1="+s1);
 		
-		/*String        		StringBuffer
-		 1.Immutable    		 Mutable
-		 2.not Synchronized      Synchronized
-		 3.Can be created        Can not be created using Literal
-		    using Literal
-		 4.  Not ThreadSafe      Threadsafe
-		 5.faster                    slower
-		 */
+		s1.delete(3,7);
+		System.out.println("s1="+s1);
 		
-		//StringBuffer s1="hello"; error
+		StringBuffer s2 =new StringBuffer("hello");
+		s2.reverse();
+		System.out.println(s2);//olleh
 		
-		StringBuffer s1=new StringBuffer();//default capacity=16
-		System.out.println("s1.capacity()="+s1.capacity());
+		s2.insert(2,10);
+		System.out.println(s2);
 		
-		StringBuffer s2=new StringBuffer("abcdefghijklmnopkk");
-		System.out.println("s2.capacity()="+s2.capacity());
-		
-		
-		StringBuffer s3=new StringBuffer(20);
-		System.out.println("s3.capacity()="+s3.capacity());
-		
-		
-		String sa="hello";
-		String sb="hi";
-		
-		sa.concat(sb);  
-		System.out.println("sa="+sa);
+		s2.insert(2,true);
+		System.out.println(s2);
 		
 		
-		StringBuffer s4=new StringBuffer("hello");
-		StringBuffer s5=new StringBuffer("hii");
+	
+	String str1=new String ("abc");
+	String str2="abc";
 		
-		s4.append(s5);
-		System.out.println("s4="+s4);
-		 
-		s4.append(true);
-		System.out.println("s4="+s4);
+		System.out.println(str1.equals(str2));//contents
+		//override contents
 		
-		s4.insert(1,"ghkll");
-		System.out.println("s4="+s4);
-		
-		       //strt index,end index
-		s4.delete(7,9);//9 not included
-		System.out.println("s4="+s4);
-		
-		s4=new StringBuffer("hello");
-		
-		s4.delete(2,3);
-		
-		System.out.println("s4="+s4);
-		
-		
-		
-		s4=new StringBuffer("hello");//heap
-		
-		String x="hello";
-		if(s4.equals("hello"))//scp
-				{
-			      System.out.println("equals");
-				}
-		else
-		{
-			System.out.println("not equals");
-		}
-		
-		System.out.println(s4.reverse());
-		
-	/*Object cls equal-> references
-	String class eqauls ovveride->contents*/
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	StringBuffer str3=new StringBuffer("abc");//heap
+	StringBuffer str4=new StringBuffer("abc");//heap
+	
+	System.out.println(str3.equals(str4));//false//object -->references
+	System.out.println("after convert="+str3.toString().equals(str4.toString()));
+	//true
+	
+	System.out.println(str3==str4);	//references
+	System.out.println(str1==str2);	//references
 		
 	}
 
